@@ -1,0 +1,8 @@
+[project]
+name = "comfyui-reiyanodes"
+description = "Custom ComfyUI nodes for image stitching"
+version = "1.0.0"
+license = {text = "MIT"}
+
+[tool.comfy]
+DisplayName = "ReiyaNodes"
