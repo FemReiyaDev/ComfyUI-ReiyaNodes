@@ -14,7 +14,7 @@ Custom ComfyUI nodes for image stitching and variable management.
 ## Features
 
 - **RMImageStitch**: Horizontally stitch multiple images together with dynamic input slots
-- **GetNodeRM**: Custom Get node with left-side output for improved workflow organization
+- **GetNodeRM**: Custom Get node with for improved workflow organization - Only variation right now being it renames the title to "Get-" instead of "Get_" when you add a variable
 
 ## Nodes
 
@@ -61,11 +61,10 @@ Stitches multiple images together horizontally (side by side).
 
 ### GetNodeRM
 
-A modified Get node that outputs from the left side, improving workflow organization and visual clarity.
+A modified Get node that improves workflow organization and visual clarity.
 
 #### Features
 
-- **Left-side Output**: Outputs appear on the left side of the node instead of the right
 - **Auto-type Detection**: Automatically detects and matches the type from corresponding SetNode
 - **Auto-coloring**: Automatically colors the node based on data type (when KJNodes auto-coloring is enabled)
 - **Virtual Link Visualization**: Option to show/hide virtual connections to the corresponding SetNode
@@ -76,7 +75,7 @@ A modified Get node that outputs from the left side, improving workflow organiza
 1. Add a GetNodeRM to your graph
 2. Select the variable name from the dropdown (must match a SetNode variable)
 3. The node will automatically configure its output type to match the SetNode
-4. Connect the left-side output to other nodes
+4. Connect the right-side output to other nodes
 
 #### Right-click Menu Options
 
@@ -88,7 +87,6 @@ A modified Get node that outputs from the left side, improving workflow organiza
 - **Node Type**: Virtual node (does not impact the resulting prompt)
 - **Compatibility**: Works with KJNodes SetNode
 - **Color Mapping**: Supports all standard ComfyUI data type colors (MODEL, LATENT, IMAGE, etc.)
-- **Output Direction**: Left (LiteGraph.LEFT)
 
 ## Technical Information
 
@@ -149,7 +147,7 @@ Manages dynamic input slot creation/removal based on `num_images` widget value.
 
 #### GetNodeRM Extension
 
-Implements the custom Get node with left-side output.
+Implements the custom Get node.
 
 **Key Features:**
 - Custom node class extending `LGraphNode`
