@@ -1,10 +1,10 @@
 const { app } = window.comfyAPI.app;
 
 app.registerExtension({
-    name: "ReiyaNodes.RMImageStitch",
+    name: "ReiyaNodes.ReiImageStitch",
 
     async nodeCreated(node) {
-        if (node.comfyClass !== "RMImageStitch") return;
+        if (node.comfyClass !== "ReiImageStitch") return;
 
         const numImagesWidget = node.widgets?.find(w => w.name === "num_images");
         if (!numImagesWidget) return;
@@ -71,7 +71,7 @@ app.registerExtension({
     },
 
     async loadedGraphNode(node) {
-        if (node.comfyClass !== "RMImageStitch") return;
+        if (node.comfyClass !== "ReiImageStitch") return;
 
         const numImagesWidget = node.widgets?.find(w => w.name === "num_images");
         if (!numImagesWidget) return;

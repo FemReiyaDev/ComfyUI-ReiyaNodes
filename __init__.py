@@ -1,11 +1,11 @@
-from .nodes import RMImageStitch
+from .nodes import ReiImageStitch
 
 NODE_CLASS_MAPPINGS = {
-    "RMImageStitch": RMImageStitch,
+    "ReiImageStitch": ReiImageStitch,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "RMImageStitch": "RM-ImageStitch",
+    "ReiImageStitch": "Rei-ImageStitch",
 }
 
 WEB_DIRECTORY = "./web"

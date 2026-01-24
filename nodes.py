@@ -2,18 +2,21 @@ import torch
 from comfy.utils import common_upscale
 
 
-class RMImageStitch:
+class ReiImageStitch:
     MAX_IMAGES = 10
 
     @classmethod
     def INPUT_TYPES(s):
         inputs = {
             "required": {
-                "num_images": ("INT", {"default": 3, "min": 2, "max": s.MAX_IMAGES, "step": 1}),
+                "num_images": (
+                    "INT",
+                    {"default": 3, "min": 2, "max": s.MAX_IMAGES, "step": 1},
+                ),
                 "match_image_size": ("BOOLEAN", {"default": True}),
                 "image_1": ("IMAGE",),
             },
-            "optional": {}
+            "optional": {},
         }
         # Add optional image inputs for slots 2 through MAX_IMAGES
         for i in range(2, s.MAX_IMAGES + 1):
@@ -67,7 +70,9 @@ Images are placed left to right: image_1 | image_2 | image_3 | ...
                 target_width = int(target_height * aspect_ratio)
 
                 img_for_upscale = img.movedim(-1, 1)  # B, H, W, C -> B, C, H, W
-                img_resized = common_upscale(img_for_upscale, target_width, target_height, "lanczos", "disabled")
+                img_resized = common_upscale(
+                    img_for_upscale, target_width, target_height, "lanczos", "disabled"
+                )
                 img_resized = img_resized.movedim(1, -1)  # B, C, H, W -> B, H, W, C
                 resized_images.append(img_resized)
 
@@ -80,7 +85,9 @@ Images are placed left to right: image_1 | image_2 | image_3 | ...
         final_images = []
         for img in processed_images:
             if img.shape[-1] < max_channels:
-                alpha = torch.ones((*img.shape[:-1], max_channels - img.shape[-1]), device=img.device)
+                alpha = torch.ones(
+                    (*img.shape[:-1], max_channels - img.shape[-1]), device=img.device
+                )
                 img = torch.cat((img, alpha), dim=-1)
             final_images.append(img)
 

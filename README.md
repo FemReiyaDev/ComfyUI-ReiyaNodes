@@ -13,12 +13,12 @@ Custom ComfyUI nodes for image stitching and variable management.
 
 ## Features
 
-- **RMImageStitch**: Horizontally stitch multiple images together with dynamic input slots
-- **GetNodeRM**: Custom Get node with for improved workflow organization - Only variation right now being it renames the title to "Get-" instead of "Get_" when you add a variable
+- **ReiImageStitch**: Horizontally stitch multiple images together with dynamic input slots
+- **ReiGetNode**: Custom Get node with for improved workflow organization - Only variation right now being it renames the title to "Get-" instead of "Get_" when you add a variable
 
 ## Nodes
 
-### RM-ImageStitch
+### Rei-ImageStitch
 
 Stitches multiple images together horizontally (side by side).
 
@@ -59,7 +59,7 @@ Stitches multiple images together horizontally (side by side).
 3. Adjust `match_image_size` to control whether images are resized to match heights
 4. The node will output a single image with all input images stitched horizontally
 
-### GetNodeRM
+### Rei-GetNode
 
 A modified Get node that improves workflow organization and visual clarity.
 
@@ -72,7 +72,7 @@ A modified Get node that improves workflow organization and visual clarity.
 
 #### Usage
 
-1. Add a GetNodeRM to your graph
+1. Add a Rei-GetNode to your graph
 2. Select the variable name from the dropdown (must match a SetNode variable)
 3. The node will automatically configure its output type to match the SetNode
 4. Connect the right-side output to other nodes
@@ -105,16 +105,16 @@ ComfyUI-ReiyaNodes/
 ├── pyproject.toml       # Project metadata
 ├── web/
 │   └── js/
-│       ├── rmImageStitch.js   # Dynamic input management for RMImageStitch
-│       └── getnoderm.js       # GetNodeRM UI implementation
+│       ├── reiImageStitch.js   # Dynamic input management for ReiImageStitch
+│       └── reiGetNode.js       # ReiGetNode UI implementation
 ```
 
 ### Python API
 
-#### RMImageStitch Class
+#### ReiImageStitch Class
 
 ```python
-class RMImageStitch:
+class ReiImageStitch:
     MAX_IMAGES = 10
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "stitch"
@@ -136,7 +136,7 @@ class RMImageStitch:
 
 ### JavaScript Extensions
 
-#### RMImageStitch Extension
+#### ReiImageStitch Extension
 
 Manages dynamic input slot creation/removal based on `num_images` widget value.
 
@@ -145,7 +145,7 @@ Manages dynamic input slot creation/removal based on `num_images` widget value.
 - `nodeCreated()`: Initializes the node and sets up callbacks
 - `loadedGraphNode()`: Restores correct input count when loading saved graphs
 
-#### GetNodeRM Extension
+#### ReiGetNode Extension
 
 Implements the custom Get node.
 
@@ -161,4 +161,4 @@ MIT License
 
 ## Credits
 
-- GetNodeRM is based on KJNodes SetGet by diffus3
+- ReiGetNode is based on KJNodes SetGet by diffus3

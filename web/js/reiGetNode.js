@@ -1,6 +1,6 @@
 const { app } = window.comfyAPI.app;
 
-// GetNodeRM - Modified Get node with output on the left side and GET-VARIABLE naming
+// ReiGetNode - Modified Get node with output on the left side and GET-VARIABLE naming
 // Based on KJNodes SetGet by diffus3
 
 function setColorAndBgColor(type) {
@@ -37,16 +37,16 @@ const LGraphNode = LiteGraph.LGraphNode;
 function showAlert(message) {
     app.extensionManager.toast.add({
         severity: 'warn',
-        summary: "Reiya GetNodeRM",
+        summary: "Reiya ReiGetNode",
         detail: `${message}. Most likely you're missing custom nodes`,
         life: 5000,
     });
 }
 
 app.registerExtension({
-    name: "GetNodeRM",
+    name: "ReiGetNode",
     registerCustomNodes() {
-        class GetNodeRM extends LGraphNode {
+        class ReiGetNode extends LGraphNode {
             defaultVisibility = true;
             serialize_widgets = true;
             drawConnection = false;
@@ -59,7 +59,7 @@ app.registerExtension({
                 if (!this.properties) {
                     this.properties = {};
                 }
-                this.properties.showOutputText = GetNodeRM.defaultVisibility;
+                this.properties.showOutputText = ReiGetNode.defaultVisibility;
                 const node = this;
 
                 this.addWidget(
@@ -114,7 +114,7 @@ app.registerExtension({
                 };
 
                 this.clone = function() {
-                    const cloned = GetNodeRM.prototype.clone.apply(this);
+                    const cloned = ReiGetNode.prototype.clone.apply(this);
                     cloned.size = cloned.computeSize();
                     return cloned;
                 };
@@ -220,12 +220,12 @@ app.registerExtension({
         }
 
         LiteGraph.registerNodeType(
-            "GetNodeRM",
-            Object.assign(GetNodeRM, {
-                title: "GetRM",
+            "ReiGetNode",
+            Object.assign(ReiGetNode, {
+                title: "Rei-GetNode",
             })
         );
 
-        GetNodeRM.category = "ReiyaNodes";
+        ReiGetNode.category = "ReiyaNodes";
     },
 });
