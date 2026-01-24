@@ -13,8 +13,8 @@ Custom ComfyUI nodes for image stitching and variable management.
 
 ## Features
 
-- **ReiImageStitch**: Horizontally stitch multiple images together with dynamic input slots
-- **ReiGetNode**: Custom Get node with for improved workflow organization - Only variation right now being it renames the title to "Get-" instead of "Get_" when you add a variable
+- **Rei-ImageStitch**: Horizontally stitch multiple images together with dynamic input slots
+- **Rei-GetNode**: Custom Get node with for improved workflow organization - Only variation right now being it renames the title to "Get-" instead of "Get_" when you add a variable
 
 ## Nodes
 
